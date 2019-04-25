@@ -25,16 +25,16 @@ bot_response = "bot: "
 user_response = "user: "
 
 
-def get_response(inputresponse):
-    responses = {"do you know", "Yes I Know"}
-    if re.search(inputresponse, responses):
-        return responses[inputresponse]
+def get_response(inputResponse):
+    responses = {"do you know (.*)": "Yes I Know {}"}
+    if inputResponse in responses:
+        return responses[inputResponse]
     else:
         return ""
 
 
-def gram_change(inputtrans):
-    re.sub('your', 'mine', inputtrans)
+def gram_change(inputToTransform):
+    return re.sub('your', 'my', inputToTransform)
 
 
 while True:
